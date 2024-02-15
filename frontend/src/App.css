@@ -1,0 +1,68 @@
+body {
+    background-color: #053B50;
+    /* f3f0ca; */
+    /* Removed overflow: hidden; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+  }
+  
+  .container {
+    background-color: #176B87;
+    padding: 20px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    position: relative; /* Make the container relative */
+    z-index: 1; /* Higher than default stacking order */
+  }
+  
+  .options {
+    color: #fff;
+  }
+  
+  .option {
+    margin-bottom: 10px;
+  }
+  
+  .option input[type="radio"] {
+    margin-right: 10px;
+  }
+  
+  .option label {
+    font-size: 18px;
+    cursor: pointer;
+  }
+  
+  .sperms-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0; /* Lower than options div */
+  }
+  
+  .sperms {
+    position: relative; /* Relative positioning to sperms-container */
+  }
+  
+  .sperm {
+    position: absolute;
+    width: 43px;
+    height: 205.42px;
+    background-image: url('./assets/sperm.svg');
+    background-size: contain;
+    background-repeat: no-repeat;
+    animation: swim 10s infinite linear;
+  }
+  
+  @keyframes swim {
+    0%, 100% {
+      transform: translateY(50) rotate(50);
+    }
+    50% {
+      transform: translateY(-5px) rotate(2deg);
+    }
+  }
