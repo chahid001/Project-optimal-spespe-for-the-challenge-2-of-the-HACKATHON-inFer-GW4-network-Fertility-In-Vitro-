@@ -1,0 +1,7 @@
+
+
+--> upload a file --> choose output
+                            *
+                            ---> graph -----------> Option -----> Standart
+                            ---> rapport                   -----> Custom -------> 2 input <value> 
+                            ---> resultat                 
