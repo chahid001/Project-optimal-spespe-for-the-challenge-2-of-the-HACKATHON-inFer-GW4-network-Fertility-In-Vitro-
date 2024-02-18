@@ -31,7 +31,7 @@ DEBUG = True
 
 
 # Application definition
-ALLOWED_HOSTS = ['0.0.0.0', '192.168.100.6']
+ALLOWED_HOSTS = ['0.0.0.0',  host_ip]
 
 INSTALLED_APPS = [
     'bio',
