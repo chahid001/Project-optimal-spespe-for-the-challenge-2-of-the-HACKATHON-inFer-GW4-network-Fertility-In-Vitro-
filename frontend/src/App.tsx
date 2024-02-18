@@ -1,9 +1,9 @@
 import axios from 'axios';
 import React, { useState, useEffect } from 'react';
 import './App.css';
-// import ii from '../../backend/plot_images/9_TjEd4F6.jpeg'
-import { Button, Checkbox, TextField, FormControlLabel, Grid, ListItem, Select, MenuItem, Image } from '@mui/material';
-import { CloudUpload, CloudSync, CheckBoxOutlineBlankOutlined, CheckBoxOutlined, Padding } from '@mui/icons-material';
+import { Button, FormControlLabel, Grid, Slider, Switch, Typography } from '@mui/material';
+import { CloudUpload, CloudSync, CheckCircle } from '@mui/icons-material';
+import { createTheme, ThemeProvider } from '@mui/material/styles';
 
 // Function to generate sperms
 const generateSperms = () => {
@@ -22,138 +22,100 @@ const generateSperms = () => {
   return newSperms;
 };
 
+const theme = createTheme({
+  palette: {
+    primary: {
+      main: '#7d7d7d', // Change primary color
+    },
+    secondary: {
+      main: '#7d7d7d', // Change secondary color
+    },
+  },
+});
+const themes = createTheme({
+  palette: {
+    primary: {
+      main: '#3d3939', // Change primary color
+    },
+    secondary: {
+      main: '#7d7d7d', // Change secondary color
+    },
+  },
+});
+
+const slideee = createTheme({
+  palette: {
+    primary: {
+      main: '#ffffff', // Change primary color
+    },
+    secondary: {
+      main: '#5a6670', // Change secondary color
+    },
+  },
+});
+
 function App() { 
   const [selectedFile, setSelectedFile] = useState(null);
   const [options, setOptions] = useState({
-    Graph: false,
-    Report: false,
-    Result: false,
-    customX: '',
-    customY: false,
-    showCustom: false // New state to handle showing custom X and Y options
+    customX: 1,
+    showCustom: false // Only Custom option is shown initially
   });
-  const [canUpload, setCanUpload] = useState(false); // New state to track whether file upload is allowed
-  const [sperms, setSperms] = useState(() => generateSperms()); // Generate sperms only once
-  const [hasSelectedOption, setHasSelectedOption] = useState(false); // Track if at least one option is selected
+  const [canUpload, setCanUpload] = useState(false); // Track whether file upload is allowed
   const [filePath, setFilePath] = useState([]);
-
+  const [sperms, setSperms] = useState(() => generateSperms()); // Generate sperms only once
+  const [loading, setLoading] = useState(false); // Track loading state
+  const [fileSelected, setFileSelected] = useState(false); // Track whether a file is selected
 
   useEffect(() => {
-    // Check if at least one option is selected
-    const hasSelectedOption = Object.values(options).some(option => option);
-    setCanUpload(hasSelectedOption);
-    setHasSelectedOption(hasSelectedOption);
-  }, [options]);
+    // Check if customX is not empty
+    setCanUpload(!!options.customX);
+  }, [options.customX]);
 
   const handleFileChange = (event) => {
     setSelectedFile(event.target.files[0]);
+    setFileSelected(true); // Set fileSelected to true when a file is selected
   };
 
-  const handleOptionChange = (option) => {
-    if (option === 'Graph' && !options[option]) {
-      // If Graph option is unchecked, also uncheck Custom
-      setOptions({ ...options, [option]: !options[option], showCustom: false });
-    } 
-    else {
-      setOptions({ ...options, [option]: !options[option] });
-    }
+  const handleCustomChange = () => {
+    setOptions({ ...options, showCustom: !options.showCustom });
   };
 
-  const handleCustomChange = (event) => {
-    setOptions({ ...options, showCustom: event.target.checked });
-  };
-
-  const handleCustomX = (event) => {
-    const value = event.target.value.trim(); // Trim whitespace from the input value
-
-    // Check if the input is empty
-    if (value === '') {
-      // If input is empty, set customX to empty string
-      setOptions({ ...options, customX: '' });
-      return; // Exit the function early
-    }
-
-    // Parse the input value to an integer
-    const intValue = parseInt(value);
-
-    if (intValue === 0) {
-      alert("Tau can't be 0 please choose Uncheck the cutom options.")
-      return;
-    }
-    // Check if the input is a valid integer value
-    if (!isNaN(intValue) && intValue != 0) {
-      // If it's a valid integer, update the state
-      setOptions({ ...options, customX: intValue });
-    } else {
-      // If it's not a valid integer, display an error message
-      alert('Please enter a valid integer value for X.');
-      return;
-    }
-  };
-
-  const handleCustomY = (event) => {
-    const value = event.target.value
-    setOptions({ ...options, customY: value });
+  const handleCustomXChange = (event, newValue) => {
+    setOptions({ ...options, customX: newValue });
   };
 
   const handleUpload = () => {
-    // Check if any option is selected
-    const hasSelectedOption = Object.values(options).some(option => option);
+    setLoading(true); // Set loading to true when upload begins
 
-    if (selectedFile && canUpload && hasSelectedOption) {
+    if (selectedFile) {
       const formData = new FormData();
       formData.append('file', selectedFile);
 
-      // Handle additional options
       const selectedOptions = [];
-      if (options.Graph) {
-        selectedOptions.push('Graph');
-        if (options.showCustom) {
-          if (options.customX === "0" || options.customX === '') {
-            alert('Please enter a valid integer value for X.');
-            return;
-          }
-          if (options.customY === false) {
-            alert('Please enter a valid integer value for Y.');
-            return;
-          }
-          else {
-            selectedOptions.push(options.customX);
-            selectedOptions.push(options.customY);
-          }
-        } else {
-          selectedOptions.push('Standard');
-        }
-      }
-      if (options.Report) {
-        selectedOptions.push('Report');
-      }
-      if (options.Result) {
-        selectedOptions.push('Result');
+
+      if (options.showCustom) {
+        selectedOptions.push('Custom');
+        selectedOptions.push(options.customX);
+      } else {
+        selectedOptions.push('Standard');
       }
 
-      // Send data to the backend
-      axios.post('http://127.0.0.1:8000/api/upload/', formData, {
-        params: {
-          options: selectedOptions
-        },
-        headers: {
-          'Content-Type': 'multipart/form-data'
-        }
+      axios.post('http://127.0.0.1:8001/api/upload/', formData, {
+        params: { options: selectedOptions },
+        headers: { 'Content-Type': 'multipart/form-data' }
       })
         .then(response => {
           console.log('File uploaded successfully:', response.data);
           setFilePath([response.data.path]);
-          // Handle success
         })
         .catch(error => {
           console.error('Error uploading file:', error);
-          // Handle error
+        })
+        .finally(() => {
+          setLoading(false); // Set loading to false after upload completes
         });
     } else {
-      // Display a message if no option is selected
       alert('Please choose a file.');
-      return;
     }
   };
 
@@ -161,116 +123,86 @@ function App() {
     <div className="App">
       <div className="container">
         <div className="options">
-          <h2 className="ooo">Upload a file and select options:</h2>
+          <h2 className="ooo" style={{ fontFamily: 'Inter, system-ui', color: 'white'}}>Upload the file</h2>
           <input 
             id="file-upload" 
             type="file" 
             accept=".csv" 
             onChange={handleFileChange} 
-            style={{ display: 'none'}} // hide the default file input
+            style={{ display: 'none' }} 
           />
-          <label htmlFor="file-upload" style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
-            <Button variant="contained" component="span" startIcon={<CloudUpload />} >
+          <label htmlFor="file-upload" style={{ display: 'flex', justifyContent: 'center', alignItems: 'center'}}>
+          <ThemeProvider theme={theme}>
+            <Button variant="contained"
+              component="span" 
+              startIcon={<CloudUpload />}
+              >
               Upload 
             </Button>
+            {fileSelected && <CheckCircle style={{ color: 'grey', fontSize: 35, paddingLeft: '5' }} />} 
+          </ThemeProvider>
+
           </label>
-          <Grid container spacing={4} paddingTop={5}  justifyContent={'center'} display={'flex'} alignItems={'center'}>
+          <Grid container spacing={2} alignItems="center" paddingTop={5} justifyContent="center" display="flex">
             <Grid item>
-              <FormControlLabel
-                control={
-                  <Checkbox
-                    icon={<CheckBoxOutlineBlankOutlined />}
-                    checkedIcon={<CheckBoxOutlined />}
-                    checked={options.Graph}
-                    onChange={() => handleOptionChange('Graph')}
-                  />
-                }
-                label="Graph"
-              />
+              <Typography style={{ fontFamily: 'Inter, system-ui', color: 'white' }}>Default</Typography>
             </Grid>
             <Grid item>
-              <FormControlLabel
-                control={
-                  <Checkbox
-                    icon={<CheckBoxOutlineBlankOutlined />}
-                    checkedIcon={<CheckBoxOutlined />}
-                    checked={options.Report}
-                    onChange={() => handleOptionChange('Report')}
-                  />
-                }
-                label="Report"
-              />
+              <ThemeProvider theme={theme}>
+                <FormControlLabel
+                  control={
+                    <Switch
+                      checked={options.showCustom}
+                      onChange={handleCustomChange}
+                    />
+                  }
+                  label=""
+                />
+              </ThemeProvider>
             </Grid>
             <Grid item >
-              <FormControlLabel
-                control={
-                  <Checkbox
-                    icon={<CheckBoxOutlineBlankOutlined />}
-                    checkedIcon={<CheckBoxOutlined />}
-                    checked={options.Result}
-                    onChange={() => handleOptionChange('Result')}
-                  />
-                }
-                label="Result"
-              />
-            </Grid>
-            <Grid item>
-              <FormControlLabel
-                control={
-                  <Checkbox
-                    checked={options.showCustom}
-                    onChange={handleCustomChange}
-                    disabled={!options.Graph}
-                  />
-                }
-                label="Custom"
-              />
+              <Typography  style={{ marginLeft: '-30px', fontFamily: 'Inter, system-ui', color: 'white' }}>Custom</Typography>
             </Grid>
           </Grid>
-          {options.showCustom && options.Graph && (
-            <Grid container spacing={2} alignItems="center" justifyContent="center" paddingBottom={5} paddingTop={5}>
-              <Grid item>
-                <TextField
-                  label="Tau"
-                  variant="outlined"
+          {options.showCustom && (
+            <Grid container spacing={2} alignItems="center" justifyContent="center" display={'flex'}>
+              <Grid item xs>
+              <ThemeProvider theme={slideee}>
+                <Slider
                   value={options.customX}
-                  onChange={handleCustomX}
+                  min={1}
+                  max={100}
+                  onChange={handleCustomXChange}
+                  aria-labelledby="discrete-slider-custom"
+                  valueLabelDisplay="auto"
+                  step={1}
                 />
-                <Select
-                  labelId="Polair"
-                  variant="outlined"
-                  value={options.customY}
-                  onChange={handleCustomY}
-                >
-                  <MenuItem value={1}>True</MenuItem>
-                  <MenuItem value={2}>False</MenuItem>
-
-                </Select>
+              </ThemeProvider>
               </Grid>
             </Grid>
-          )}
-          {!hasSelectedOption && (
-            <p style={{ color: 'red', alignItems: 'center', justifyContent: 'center', display: 'flex'}}>Please select at least one option.</p>
           )}
         </div>
         <Grid container justifyContent="center" paddingTop={5} paddingBottom={5}>
           <Grid item>
-            <Button 
-              variant="contained" 
-              startIcon={<CloudSync />} 
-              onClick={handleUpload} 
-              disabled={!canUpload || (options.Graph && options.showCustom && !options.customX) || (!options.Graph && options.showCustom && (!options.Report && !options.Result)) || !hasSelectedOption}
+          <ThemeProvider theme={themes}>
+              <Button 
+                variant="contained" 
+                startIcon={<CloudSync />} 
+                onClick={handleUpload} 
+                disabled={!selectedFile || loading} // Disable button during loading
               >
-              Generate 
-            </Button>
+                Generate 
+              </Button>
+            </ThemeProvider>
+            {loading && <div className="loader"></div>} {/* Show loader when loading */}
           </Grid>
         </Grid>
-        <div className="file-path" >
-        {filePath.map((path, index) => (
-          <div key={index}>
-            <img src={path} alt={`Uploaded Image ${path}`} />
-          </div>
-        ))}
+        <div className="file-path">
+          {filePath.map((path, index) => (
+            <div key={index}>
+              <img src={path} alt={`Uploaded Image ${path}`} />
+            </div>
+          ))}
         </div>
       </div>
 

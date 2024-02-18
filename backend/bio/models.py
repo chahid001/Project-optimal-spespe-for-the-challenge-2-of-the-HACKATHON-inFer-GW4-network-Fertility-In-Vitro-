@@ -21,7 +21,7 @@ class Meta:
 
 var_name = ''
 
-def ploting_beat_pattern(path_file, tau, polar):
+def ploting_beat_pattern(path_file, tau):
     if tau == -1:
         tau = 5
     else:
@@ -33,10 +33,7 @@ def ploting_beat_pattern(path_file, tau, polar):
         print(f"Error: File {path_file} not found.")
         return None
 
-    if polar:
-        fig, ax1 = plt.subplots(subplot_kw=dict(projection='polar'), figsize=(15, 15))
-    else:
-        fig, ax1 = plt.subplots()
+    fig, ax1 = plt.subplots()
 
     for i in range(0, len(data), tau):
         row_data = data.iloc[i]
@@ -82,58 +79,14 @@ def reshaping_data(path):
 
 # Hard coded at l 1 dial lil fia n3as a 3ibad lah
 def check_data(file, options):
-    Graph = False
-    X = -1 
-    Y = -1
-    Standard = False
-    Custom = False
-    Report = False
-    Result = False
+    range = -1 
 
-    if options[0] == 'Graph':
-        Graph = True
-
-    if Graph:
-        if len(options) > 1:
-            if options[1] != 'Standard':
-                Custom = True
-            else:
-                Standard = True
-            if Custom:
-                X = options[1]
-                if options[2] == "1":
-                    Y = True
-                if options[2] == "2":
-                    Y = False
-                if len(options) > 3 and options[3] == 'Report':
-                    Report = True
-                if 'Result' in options[3:]:
-                    Result = True
-    
-    if Standard:
-        if len(options) > 2 and options[2] == 'Report':
-            Report = True
-        if 'Result' in options[2:]:
-            Result = True
-    else:
-        if len(options) >= 1 and options[0] == 'Report':
-            Report = True
-        if 'Result' in options[0:]:
-            Result = True
-
-
-    if len(options) > 1 and options[1] == 'Report':
-        Report = True
-    if 'Result' in options[1:]:
-        Result = True
+    if options[0] == 'Custom':
+        range = options[1]
 
     # ff = reshaping_data(file)
     
-    if Graph == True:
-        if X == -1 and Y == -1:
-            ploting_beat_pattern(file, X, False)
-        else:
-            ploting_beat_pattern(file, X, Y)
+    ploting_beat_pattern(file, range)
 
     # print(f"Graph: {Graph}")
     # print(f"Standard: {Standard}")

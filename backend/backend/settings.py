@@ -25,10 +25,11 @@ SECRET_KEY = 'django-insecure-jhb6@2twys=ut(1v_qxqu6%be=#@ftip4o#)^xvj-l$m5&=a6&
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+# ALLOWED_HOSTS = []
 
 
 # Application definition
+# ALLOWED_HOSTS = ['0.0.0.0', 'localhost', '127.0.0.1']
 
 INSTALLED_APPS = [
     'bio',
@@ -53,6 +54,7 @@ MIDDLEWARE = [
 ]
 CORS_ALLOWED_ORIGINS = [
     "http://localhost:5173",
+    "http://0.0.0.0:5173",
     # Add more origins if needed
 ]
 ROOT_URLCONF = 'backend.urls'

@@ -1,33 +1,32 @@
-
-
 body {
-  background-color: #8CB9BD;
+  background-color: #000000;
   display: flex;
   justify-content: center;
   align-items: center;
   height: 100%;
   margin: 0;
-  /* overflow: auto; */
-  overflow-y: scroll;
-  overflow-x: hidden;
+  font-family: 'Roboto', sans-serif;
+  overflow: hidden;
 }
 
 div.container {
-  background-color: #d8c09c;
-
+  position: relative;
+  background-color: #161616;
   padding: 20px;
   overflow-y: auto;
   overflow-x: hidden;
-  /* height: 100%;
-  width: 100%; */
   border-radius: 10px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
   margin-bottom: 20px;
-  position: relative;
-  z-index: 4; /* Higher than .sperms-container and .options */
+  max-width: 600px;
+  min-width: 400px;
+  opacity: 99%;
+  max-height: 650px;
+  z-index: 4;
 }
 
 .options {
-  color: #fff;
+  color: #3c4043;
 }
 
 .option {
@@ -51,13 +50,11 @@ div.container {
   height: 100%;
   z-index: 2; /* Adjust z-index */
 }
-
 .ooo {
   justify-content: center;
   display: flex;
   align-items: center;
 }
-
 .sperms {
   position: relative;
 }
@@ -74,10 +71,10 @@ div.container {
 
 @keyframes swim {
   0%, 100% {
-    transform: translateY(50) rotate(50);
+    transform: translateY(50) rotate(50); /* Adjust rotation angle */
   }
   80% {
-    transform: translateY(-5px) rotate(2deg);
+    transform: translateY(-5px) rotate(2deg); /* Adjust rotation angle */
   }
 }
 
@@ -86,30 +83,59 @@ div.container {
   max-height: 600px;
   /* margin-bottom: 10px;
   margin-left: 45px; */
-  border-radius: 15%;
+  border-radius: 3%;
 }
 
-/* HTML: <div class="loader"></div> */
+/* Loading Animation */
 .loader {
   width: 50px;
   aspect-ratio: 1;
   display: grid;
   animation: l14 4s infinite;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 3;
+  background-color: rgba(255, 255, 255, 0.8);
+  border-radius: 50%;
+  box-shadow: 0 0 0 3px rgba(0, 0, 0, 0.1);
 }
+
 .loader::before,
 .loader::after {    
   content: "";
   grid-area: 1/1;
   border: 8px solid;
   border-radius: 50%;
-  border-color: red red #0000 #0000;
+  border-color: rgb(255, 254, 254) rgb(120, 120, 120) #61616100 #8a8a8a00;
   mix-blend-mode: darken;
   animation: l14 1s infinite linear;
 }
+
 .loader::after {
-  border-color: #0000 #0000 blue blue;
+  border-color: #92929200 #a2a2a200 rgb(95, 95, 95) rgb(78, 78, 78);
   animation-direction: reverse;
 }
-@keyframes l14{ 
-  100%{transform: rotate(1turn)}
+
+@keyframes l14 { 
+  100% { transform: rotate(1turn) }
+}
+
+.fadeOut {
+  animation: fadeOut 0.5s forwards;
+}
+
+@keyframes fadeOut {
+  from { opacity: 1; }
+  to { opacity: 0; }
+}
+
+/* Styles for other components can be added here */
+
+.rubik-fo {
+  font-family: "Rubik", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
 }
