@@ -11,12 +11,10 @@ https://docs.djangoproject.com/en/5.0/ref/settings/
 """
 
 from pathlib import Path
-import socket
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-host_ip = socket.gethostbyname(socket.gethostname())
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/5.0/howto/deployment/checklist/
@@ -31,7 +29,7 @@ DEBUG = True
 
 
 # Application definition
-ALLOWED_HOSTS = ['0.0.0.0',  host_ip]
+ALLOWED_HOSTS = ['0.0.0.0']
 
 INSTALLED_APPS = [
     'bio',
@@ -56,7 +54,6 @@ MIDDLEWARE = [
 ]
 CORS_ALLOWED_ORIGINS = [
     "http://0.0.0.0:5173",
-    f"http://{host_ip}:5173",
     # Add more origins if needed
 ]
 ROOT_URLCONF = 'backend.urls'

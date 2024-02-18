@@ -1,0 +1,27 @@
+version: '3'
+
+services:
+
+  backend-app:
+    build: backend/
+    ports:
+      - 8001:8001
+    volumes:
+      - ./volume/plot_images/:/plot_images
+    networks:
+      - net1
+
+  frontend-app:
+    build: frontend/
+    ports:
+      - 5173:5173
+    volumes:
+      - ./volume/plot_images/:/app/plot_images
+    networks:
+      - net1
+    depends_on:
+      - backend-app
+
+networks:
+  net1:
+    driver: bridge
