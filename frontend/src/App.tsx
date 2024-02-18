@@ -100,7 +100,7 @@ function App() {
         selectedOptions.push('Standard');
       }
 
-      axios.post('http://127.0.0.1:8001/api/upload/', formData, {
+      axios.post('http://0.0.0.0:8002/api/upload/', formData, {
         params: { options: selectedOptions },
         headers: { 'Content-Type': 'multipart/form-data' }
       })
