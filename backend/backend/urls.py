@@ -16,7 +16,7 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from bio import views
+from bio import views 
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -27,4 +27,6 @@ urlpatterns = [
 urlpatterns = [
     path('api/upload/', views.upload_file, name='upload_file'),
 ]
+
+
 

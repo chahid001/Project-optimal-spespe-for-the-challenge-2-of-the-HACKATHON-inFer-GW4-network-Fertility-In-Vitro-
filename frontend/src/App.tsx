@@ -1,8 +1,9 @@
 import axios from 'axios';
 import React, { useState, useEffect } from 'react';
 import './App.css';
-import { Button, Checkbox, TextField, FormControlLabel, Grid, ListItem, Select, MenuItem } from '@mui/material';
-import { CloudUpload, CloudSync, CheckBoxOutlineBlankOutlined, CheckBoxOutlined } from '@mui/icons-material';
+// import ii from '../../backend/plot_images/9_TjEd4F6.jpeg'
+import { Button, Checkbox, TextField, FormControlLabel, Grid, ListItem, Select, MenuItem, Image } from '@mui/material';
+import { CloudUpload, CloudSync, CheckBoxOutlineBlankOutlined, CheckBoxOutlined, Padding } from '@mui/icons-material';
 
 // Function to generate sperms
 const generateSperms = () => {
@@ -34,6 +35,8 @@ function App() {
   const [canUpload, setCanUpload] = useState(false); // New state to track whether file upload is allowed
   const [sperms, setSperms] = useState(() => generateSperms()); // Generate sperms only once
   const [hasSelectedOption, setHasSelectedOption] = useState(false); // Track if at least one option is selected
+  const [filePath, setFilePath] = useState([]);
+
 
   useEffect(() => {
     // Check if at least one option is selected
@@ -50,7 +53,8 @@ function App() {
     if (option === 'Graph' && !options[option]) {
       // If Graph option is unchecked, also uncheck Custom
       setOptions({ ...options, [option]: !options[option], showCustom: false });
-    } else {
+    } 
+    else {
       setOptions({ ...options, [option]: !options[option] });
     }
   };
@@ -74,6 +78,7 @@ function App() {
 
     if (intValue === 0) {
       alert("Tau can't be 0 please choose Uncheck the cutom options.")
+      return;
     }
     // Check if the input is a valid integer value
     if (!isNaN(intValue) && intValue != 0) {
@@ -82,6 +87,7 @@ function App() {
     } else {
       // If it's not a valid integer, display an error message
       alert('Please enter a valid integer value for X.');
+      return;
     }
   };
 
@@ -105,9 +111,11 @@ function App() {
         if (options.showCustom) {
           if (options.customX === "0" || options.customX === '') {
             alert('Please enter a valid integer value for X.');
+            return;
           }
           if (options.customY === false) {
             alert('Please enter a valid integer value for Y.');
+            return;
           }
           else {
             selectedOptions.push(options.customX);
@@ -135,6 +143,7 @@ function App() {
       })
         .then(response => {
           console.log('File uploaded successfully:', response.data);
+          setFilePath([response.data.path]);
           // Handle success
         })
         .catch(error => {
@@ -144,6 +153,7 @@ function App() {
     } else {
       // Display a message if no option is selected
       alert('Please choose a file.');
+      return;
     }
   };
 
@@ -151,20 +161,20 @@ function App() {
     <div className="App">
       <div className="container">
         <div className="options">
-          <h2>Upload a file and select options:</h2>
+          <h2 className="ooo">Upload a file and select options:</h2>
           <input 
             id="file-upload" 
             type="file" 
             accept=".csv" 
             onChange={handleFileChange} 
-            style={{ display: '' }} // hide the default file input
+            style={{ display: 'none'}} // hide the default file input
           />
           <label htmlFor="file-upload" style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
-            <Button variant="contained" component="span" startIcon={<CloudUpload />}>
-              Upload File
+            <Button variant="contained" component="span" startIcon={<CloudUpload />} >
+              Upload 
             </Button>
           </label>
-          <Grid container spacing={5}>
+          <Grid container spacing={4} paddingTop={5}  justifyContent={'center'} display={'flex'} alignItems={'center'}>
             <Grid item>
               <FormControlLabel
                 control={
@@ -191,7 +201,7 @@ function App() {
                 label="Report"
               />
             </Grid>
-            <Grid item>
+            <Grid item >
               <FormControlLabel
                 control={
                   <Checkbox
@@ -204,22 +214,21 @@ function App() {
                 label="Result"
               />
             </Grid>
-            {options.Graph && (
-              <Grid item>
-                <FormControlLabel
-                  control={
-                    <Checkbox
-                      checked={options.showCustom}
-                      onChange={handleCustomChange}
-                    />
-                  }
-                  label="Custom"
-                />
-              </Grid>
-            )}
+            <Grid item>
+              <FormControlLabel
+                control={
+                  <Checkbox
+                    checked={options.showCustom}
+                    onChange={handleCustomChange}
+                    disabled={!options.Graph}
+                  />
+                }
+                label="Custom"
+              />
+            </Grid>
           </Grid>
           {options.showCustom && options.Graph && (
-            <Grid container spacing={3} alignItems="center">
+            <Grid container spacing={2} alignItems="center" justifyContent="center" paddingBottom={5} paddingTop={5}>
               <Grid item>
                 <TextField
                   label="Tau"
@@ -241,22 +250,30 @@ function App() {
             </Grid>
           )}
           {!hasSelectedOption && (
-            <p style={{ color: 'red' }}>Please select at least one option.</p>
+            <p style={{ color: 'red', alignItems: 'center', justifyContent: 'center', display: 'flex'}}>Please select at least one option.</p>
           )}
         </div>
-        <Grid container justifyContent="center">
+        <Grid container justifyContent="center" paddingTop={5} paddingBottom={5}>
           <Grid item>
             <Button 
               variant="contained" 
               startIcon={<CloudSync />} 
               onClick={handleUpload} 
-              disabled={!canUpload || (!options.Graph && options.showCustom) || !hasSelectedOption}
-            >
-              Generate
+              disabled={!canUpload || (options.Graph && options.showCustom && !options.customX) || (!options.Graph && options.showCustom && (!options.Report && !options.Result)) || !hasSelectedOption}
+              >
+              Generate 
             </Button>
           </Grid>
         </Grid>
+        <div className="file-path" >
+        {filePath.map((path, index) => (
+          <div key={index}>
+            <img src={path} alt={`Uploaded Image ${path}`} />
+          </div>
+        ))}
+        </div>
       </div>
+
       <div className="sperms-container">
         <div className='sperms'>
           {sperms}
