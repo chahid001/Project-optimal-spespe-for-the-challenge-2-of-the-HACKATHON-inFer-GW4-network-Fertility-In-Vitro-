@@ -88,7 +88,6 @@ Our future perspectives are looking for proposing such analysis to the human pur
 <a name="GUI"></a>
 # The GUI:
 
-An overview of the platform
 The platform uses a Graphical User Interface (GUI) to allow easy manipulation of input Data.
 The platform proposes an input button for Data files from TRACKMATE and accepts only Excel or CSV formats.
 After uploading a file the user can choose between having a default result or a customized one where the range of the waveforms can be defined.
@@ -96,8 +95,10 @@ There is a slider for the range of the flagella waveform graphs.
 
 Given these input values, the program reports a graphic illustration of the beat pattern  and in future we can show an additional values which are considered as parameters of classification (optimal, minimal or Blebbed), where the outputs can be downloaded as image .JPG/.JPEG or as a report PDF.
 
+Knowing that this plateform can also be used in a mobile phone wich makes it friendly and easy to manipulate.
 
 The GUI is published [here](http://optimal-spespe.me/)
+An overview of the platform
 ![](https://github.com/chahid001/Project-optimal-spespe-for-the-challenge-2-of-the-HACKATHON-inFer-GW4-network-Fertility-In-Vitro-/blob/main/pic/GUI.png)
 
 <a name="Team"></a>
