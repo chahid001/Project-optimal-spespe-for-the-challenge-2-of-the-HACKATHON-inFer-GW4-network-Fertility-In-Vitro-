@@ -123,6 +123,12 @@ function App() {
     <div className="App">
       <div className="container">
         <div className="options">
+	  <h1 className="ooo" style={{ fontFamily: 'Inter, system-ui', color: 'white'}}>Project optimal-spespe</h1>
+	<div>
+	  <h4 className="ooo" style={{ fontFamily: 'Inter, system-ui', color: 'grey'}}>for the challenge #2 of</h4>
+	  <h4 className="ooo" style={{ fontFamily: 'Inter, system-ui', color: 'grey'}}>the HACKATHON inFer GW4 network</h4>
+	  <h4 className="ooo" style={{ fontFamily: 'Inter, system-ui', color: 'grey'}}>"Fertility: In Vitro, In Silico, In Clinico"</h4>
+	</div>
           <h2 className="ooo" style={{ fontFamily: 'Inter, system-ui', color: 'white'}}>Upload the file</h2>
           <input 
             id="file-upload" 
@@ -204,7 +210,10 @@ function App() {
             </div>
           ))}
         </div>
-      </div>
+	<h4 className="ooo" style={{ fontFamily: 'Inter, system-ui', color: 'grey'}}>------------------------------------------------------------</h4>
+	<h5 className="ooo" style={{ fontFamily: 'Inter, system-ui', color: 'grey'}}>Project Optimal-Spespe, developed for Hackathon inFer GW4 Network's Fertility Challenge, employs two machine learning models to classify and visualize bovine spermatozoa flagella. The user-friendly Graphical User Interface facilitates easy data manipulation, accepting TRACKMATE-generated files in Excel or CSV formats. Users can choose default or customized results, specifying sample type and waveform range. Notably, the program operates from 8:00 am to 12:00 pm, offering immediate graphic illustrations of beat patterns with classification parameters (optimal, minimal, or Blebbed). Outputs can be downloaded as image files or comprehensive PDF reports, making Optimal-Spespe a versatile and accessible tool for sperm analysis.</h5>
+      	<h5 className="ooo" style={{ fontFamily: 'Inter, system-ui', color: 'grey'}}>For more information check the documentation&nbsp;<a href="https://github.com/chahid001/Project-optimal-spespe-for-the-challenge-2-of-the-HACKATHON-inFer-GW4-network-Fertility-In-Vitro-" target="_blank">here</a></h5>
+	</div>
 
       <div className="sperms-container">
         <div className='sperms'>

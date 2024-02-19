@@ -35,7 +35,7 @@ def ploting_beat_pattern(path_file, tau):
 
     fig, ax1 = plt.subplots()
 
-    for i in range(0, len(data), tau):
+    for i in list(np.linspace(0, len(data)-1, tau).astype(int)):
         row_data = data.iloc[i]
         x = row_data.iloc[2:1001]
         y = row_data.iloc[1002:2001]

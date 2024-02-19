@@ -55,6 +55,17 @@ div.container {
   display: flex;
   align-items: center;
 }
+
+h4.ooo {
+  margin-bottom: -20px;
+}
+h1.ooo {
+  margin-top: -5px;
+  margin-bottom: -10px;
+}
+h2.ooo {
+  margin-top: 40px;
+}
 .sperms {
   position: relative;
 }
