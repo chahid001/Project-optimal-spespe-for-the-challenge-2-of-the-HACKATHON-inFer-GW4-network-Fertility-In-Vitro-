@@ -105,7 +105,7 @@ The GUI is published [here](http://optimal-spespe.me/)
 
 The team is comprised of four students from two different universities and different departments. From the department of Biology of University Mohamed V, two students, a first year master student of Genomics and Bioinformatics and a graduate student of Biology and Health, and from the physics department of the same university, a graduate student of theorical physics, and finally a Bachelor student of IT Architecter Expert from the 1337 school department of University Mohamed 6 – Polytechnic. The group received additional advice from their common supervisor, Pr. Aïcha Madkour, a human reproduction specialist.
 
-1. [![Mohammad HICHAM POLO: team leader](https://github.com/MohammadHichamPolo.png)](https://github.com/MohammadHichamPolo)
-2. [![Chama BENSLIMANE](https://github.com/BenslimaneChama.png)](https://github.com/BenslimaneChama)
-3. [![Ahmed BALK](https://github.com/Perkase.png)](https://github.com/Perkase)
-4. [![Soufiane CHAHID](https://github.com/chahid001.png)](https://github.com/chahid001)
+1. [![Mohammad HICHAM POLO: team leader](https://github.com/MohammadHichamPolo.png)](https://github.com/MohammadHichamPolo) Mohammad HICHAM POLO: team leader
+2. [![Chama BENSLIMANE](https://github.com/BenslimaneChama.png)](https://github.com/BenslimaneChama) Chama BENSLIMANE
+3. [![Ahmed BALK](https://github.com/Perkase.png)](https://github.com/Perkase) Ahmed BALK
+4. [![Soufiane CHAHID](https://github.com/chahid001.png)](https://github.com/chahid001) Soufiane CHAHID
