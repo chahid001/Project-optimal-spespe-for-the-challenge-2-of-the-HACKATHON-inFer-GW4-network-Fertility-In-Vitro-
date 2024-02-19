@@ -42,7 +42,7 @@ def ploting_beat_pattern(path_file, tau):
         ax1.plot(x, y)
 
     # Create a directory to save the plot image if it doesn't exist
-    output_dir = '../../frontend/plot_images'
+    output_dir = '../frontend/plot_images'
     os.makedirs(output_dir, exist_ok=True)
 
     # Take the name from csv

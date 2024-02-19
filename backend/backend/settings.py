@@ -29,7 +29,7 @@ DEBUG = True
 
 
 # Application definition
-ALLOWED_HOSTS = ['0.0.0.0']
+ALLOWED_HOSTS = ['0.0.0.0', '52.224.237.242', '52.170.93.107']
 
 INSTALLED_APPS = [
     'bio',
@@ -53,7 +53,9 @@ MIDDLEWARE = [
     'corsheaders.middleware.CorsMiddleware',
 ]
 CORS_ALLOWED_ORIGINS = [
+    "http://52.224.237.242:5173",
     "http://0.0.0.0:5173",
+    "http://52.170.93.107",
     # Add more origins if needed
 ]
 ROOT_URLCONF = 'backend.urls'
