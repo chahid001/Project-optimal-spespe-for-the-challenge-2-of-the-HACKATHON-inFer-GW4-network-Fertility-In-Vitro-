@@ -30,18 +30,17 @@ We clustered, plotting K-Means Cluster with Python, the data of the groups after
 The following type of machine learning we will create, to classify sperms, will be based respecting this method, to have more precision. 
 Classify within the only_frozen group.
 Compare the classes provided with the Blebbed group.
+
 Identify significant differences between the Blebbed group and the classes within only_frozen.
 The class exhibiting significant differences with the Blebbed group is designated as the Normal group.
 The remaining classes, along with the Blebbed group, are categorized as Abnormal.
 "(Identify the threefold)"
 Classify within only_fresh.
+
 Compare with the Normal class within only_frozen.
 The class showing significant differences with the normal class of the only_frozen group is labeled as Optimal.
 The remaining classes are categorized as normal to low motility.
 "(Identify the threefold)".
-
-We trained our machine learning program with 200 spermatozoids’ Data, 16 spermatozoids’ Data was divided in two, to test the program when pre GUI and when using the GUI app.
-The machine learning got 73.41 % accuracy.
 
 # Classification result and machine learning:
 
@@ -62,9 +61,6 @@ The Cut-Off was calculated using standard deviation by adding it to the mean val
 ![](https://github.com/chahid001/Project-optimal-spespe-for-the-challenge-2-of-the-HACKATHON-inFer-GW4-network-Fertility-In-Vitro-/blob/main/pic/pic1.png)
 
 
-We trained our machine learning program with 200 spermatozoids’ Data, 16 spermatozoids’ Data was divided in two, to test the program when pre GUI and when using the GUI app.
-The machine learning got 73.41 % accuracy.
-
 # Mathematical section: 
 
 
@@ -80,12 +76,14 @@ Ve=((|max-min|/2)/T)
 An overview of the platform
 The platform uses a Graphical User Interface (GUI) to allow easy manipulation of input Data.
 The platform proposes an input button for Data files from TRACKMATE and accepts only Excel or CSV formats.
-After uploading a file the user can choose between having a default result or a customized one where the sample type (Frozen or Fresh) and the range of the waveforms can be defined.
+After uploading a file the user can choose between having a default result or a customized one where the range of the waveforms can be defined.
 There is a slider for the range of the flagella waveform graphs.
-Given these input values, the program reports a graphic illustration of the beat pattern with additional values which are considered as parameters of classification (optimal, minimal or Blebbed). Any output can be downloaded as image .JPG/.JPEG or as a report PDF.
+
+Given these input values, the program reports a graphic illustration of the beat pattern  and in future we can show an additional values which are considered as parameters of classification (optimal, minimal or Blebbed), where the outputs can be downloaded as image .JPG/.JPEG or as a report PDF.
+
 
 The GUI is published [here](http://optimal-spespe.me/)
-
+![](https://github.com/chahid001/Project-optimal-spespe-for-the-challenge-2-of-the-HACKATHON-inFer-GW4-network-Fertility-In-Vitro-/blob/main/pic/GUI.png)
 # TEAM: 
 
 The team is comprised of four students from two different universities and different departments. From the department of Biology of University Mohamed V, two students, a master’s student of Genomics and Bioinformatics and a graduate student of Biology and Health, and from the physics department of the same university, a graduate student of theorical physics, and finally a Bachelor student of IT Architecter Expert from the 1337 school department of University Mohamed 6 – Polytechnic. The group received additional advice from their common supervisor, Pr. Aïcha Madkour, a human reproduction specialist.
