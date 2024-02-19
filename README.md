@@ -47,19 +47,19 @@ The machine learning got 73.41 % accuracy.
 
 After generating the classes inside the groups we get these results in an unsupervised way, so the following step was to find significant differences to identify a threefold.
 
-IMAGEEEEEEEEEEEEEEEEEEEEEEE
+![](https://github.com/chahid001/Project-optimal-spespe-for-the-challenge-2-of-the-HACKATHON-inFer-GW4-network-Fertility-In-Vitro-/blob/main/pic/pic2.png)
 
 After comparison between the groups we find that all groups show significant differences in period and length and what makes the difference between small colored groups is the velocity.
 We find that Blebbed is the worst case, and when it comes to frozen group, only_frozen_bleu and green are classed Minimals meanwhile only_frozen_orange is classed optimal, and for the only_fresh group the blue class is optimal meanwhile the orange one is minimal.
 
 
-IMAGGGGGGGGGGGGEEEEEEEEEEEE
+![](https://github.com/chahid001/Project-optimal-spespe-for-the-challenge-2-of-the-HACKATHON-inFer-GW4-network-Fertility-In-Vitro-/blob/main/pic/pic3.png)
 
 This classification helped us to identify a method to find some threefold for the following creation of the second machine learning. 
 
 The Cut-Off was calculated using standard deviation by adding it to the mean value when the class is inferior and subtracts it when the class is superior. The cutoff is the mean of the values obtained. 
 
-IMAGGGGEEEE
+![](https://github.com/chahid001/Project-optimal-spespe-for-the-challenge-2-of-the-HACKATHON-inFer-GW4-network-Fertility-In-Vitro-/blob/main/pic/pic1.png)
 
 
 We trained our machine learning program with 200 spermatozoids’ Data, 16 spermatozoids’ Data was divided in two, to test the program when pre GUI and when using the GUI app.
