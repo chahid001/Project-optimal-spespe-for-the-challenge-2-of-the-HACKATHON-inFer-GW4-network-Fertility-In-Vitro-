@@ -87,3 +87,7 @@ The GUI is published [here](http://optimal-spespe.me/)
 # TEAM: 
 
 The team is comprised of four students from two different universities and different departments. From the department of Biology of University Mohamed V, two students, a master’s student of Genomics and Bioinformatics and a graduate student of Biology and Health, and from the physics department of the same university, a graduate student of theorical physics, and finally a Bachelor student of IT Architecter Expert from the 1337 school department of University Mohamed 6 – Polytechnic. The group received additional advice from their common supervisor, Pr. Aïcha Madkour, a human reproduction specialist.
+
+- [![MohammadHichamPolo](https://github.com/MohammedHichamPolo.png)](https://github.com/MohammadHichamPolo)
+  
+- [![BenslimaneChama](https://github.com/BenslimaneChama.png)](https://github.com/BenslimaneChama))
