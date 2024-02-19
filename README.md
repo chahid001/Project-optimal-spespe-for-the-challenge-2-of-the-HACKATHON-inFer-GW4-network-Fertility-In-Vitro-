@@ -84,7 +84,7 @@ After uploading a file the user can choose between having a default result or a 
 There is a slider for the range of the flagella waveform graphs.
 Given these input values, the program reports a graphic illustration of the beat pattern with additional values which are considered as parameters of classification (optimal, minimal or Blebbed). Any output can be downloaded as image .JPG/.JPEG or as a report PDF.
 
-The GUI is published .
+The GUI is published [here](http://optimal-spespe.me/)
 
 # TEAM: 
 
