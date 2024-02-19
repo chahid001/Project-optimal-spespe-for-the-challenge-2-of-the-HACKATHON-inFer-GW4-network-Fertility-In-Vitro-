@@ -68,6 +68,8 @@ Velocity is a parameter we set to describe the amplitude traveled in a given per
 We measured this parameter by identifying in the first place the maximum and minimum value of this point in the Y-value axis of the beat pattern, than we calculated the difference of this values divided by two to measure then the ratio with the period given in the data (T) :
 
 Ve=((|max-min|/2)/T)  
+# Perspectives :
+Our future perspectives are looking for proposing such analysis to the human purpose. In an ICSI like acts a real-time analysis to the sperm is high required to do a decision making for the injections, augmenting the fecundation ratios and having good results in clinico. Assuming that this program can be adapted to the human spermatozoa Data, we are looking for a program, machine learning based, to get such Data in real-time by imagery from the ICSI microscopes.
 
 
 # The GUI:
