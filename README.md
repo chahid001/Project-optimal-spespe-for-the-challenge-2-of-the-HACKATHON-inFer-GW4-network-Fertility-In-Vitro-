@@ -108,5 +108,4 @@ The team is comprised of four students from two different universities and diffe
 
 1. [![Mohammad HICHAM POLO: team leader](https://github.com/MohammadHichamPolo.png)](https://github.com/MohammadHichamPolo) Mohammad HICHAM POLO: team leader
 2. [![Chama BENSLIMANE](https://github.com/BenslimaneChama.png)](https://github.com/BenslimaneChama) Chama BENSLIMANE
-3. [![Ahmed BALK](https://github.com/Perkase.png)](https://github.com/Perkase) Ahmed BALK
 4. [![Soufiane CHAHID](https://github.com/chahid001.png)](https://github.com/chahid001) Soufiane CHAHID
