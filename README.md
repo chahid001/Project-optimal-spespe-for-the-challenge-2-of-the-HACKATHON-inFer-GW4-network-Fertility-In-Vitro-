@@ -107,6 +107,6 @@ An overview of the platform
 The team is comprised of four students from two different universities and different departments. From the department of Biology of University Mohamed V, two students, a first year master student of Genomics and Bioinformatics and a graduate student of Biology and Health, and from the physics department of the same university, a graduate student of theorical physics, and finally a Bachelor student of IT Architecter Expert from the 1337 school department of University Mohamed 6 – Polytechnic. The group received additional advice from their common supervisor, [Pr. Aïcha Madkour](https://www.linkedin.com/in/aicha-madkour/), a human reproduction specialist.
 
 1. [![Mohammad HICHAM POLO: team leader](https://github.com/MohammadHichamPolo.png)](https://github.com/MohammadHichamPolo) [Mohammad HICHAM POLO](https://www.linkedin.com/in/mohammad-hicham-polo-071043269/): team leader
-2. [![Ahmed Balk](https://github.com/Ahmed-Balk.png)](https://github.com/Ahmed-Balk) Ahmed Balk
-3. [![Chama BENSLIMANE](https://github.com/BenslimaneChama.png)](https://github.com/BenslimaneChama) Chama BENSLIMANE
-4. [![Soufiane CHAHID](https://github.com/chahid001.png)](https://github.com/chahid001) Soufiane CHAHID
+2. [![Ahmed Balk](https://github.com/Ahmed-Balk.png)](https://github.com/Ahmed-Balk) [Ahmed Balk](https://www.linkedin.com/in/ahmed-balk-572bb8241/)
+3. [![Chama BENSLIMANE](https://github.com/BenslimaneChama.png)](https://github.com/BenslimaneChama) [Chama BENSLIMANE](https://www.linkedin.com/in/chama-benslimane-887b83272/)
+4. [![Soufiane CHAHID](https://github.com/chahid001.png)](https://github.com/chahid001) [Soufiane CHAHID](https://www.linkedin.com/search/results/all/?heroEntityKey=urn%3Ali%3Afsd_profile%3AACoAADQbbAEBynD9Mg4C_dmHpYAASLW5gsn5Kok&keywords=Soufiane%20Chahid&origin=ENTITY_SEARCH_HOME_HISTORY&sid=GeG)
