@@ -15,7 +15,7 @@ Specific: We created a Platform to classify sperm beat pattern classification, i
 Measurable: Our digital solution aims to deliver measurable outcomes in the realm of sperm analysis. The machine learning model, designed to classify sperm beat patterns, not only identifies abnormalities like blebbing but also rigorously evaluates its accuracy in distinguishing between fresh and frozen sperm samples. 
 Achievable: our digital solution is both sensible and practical, (but mostly practical), successfully implemented within the allocated time frame and utilizing available resources. It stands as an efficient and comprehensive tool for sperm pattern classification and anomaly detection, meeting the needs and expectations of researchers in the field.
 
-# Objectives:
+
 # Data comprehension and reshaping: 
 
 The dataset, encapsulated in the `all_data.zip` archive, complements the research on computer-assisted beat-pattern analysis and flagellar waveforms of bovine spermatozoa. The accompanying ZIP file contains the same data in CSV format, each corresponding to a specific swimmer with structured data for each analyzed waveform, featuring normal and tangent angle forms, dimensional flagellum length, original filenames, and flags for fresh, frozen, and blebbed sperm.  The Cartesian data in this archive is not normalized in space. We treated the data using Python. 
@@ -69,7 +69,6 @@ We measured this parameter by identifying in the first place the maximum and min
 
 Ve=((|max-min|/2)/T)  
 
-# Assumption:
 
 # The GUI:
 
@@ -88,6 +87,4 @@ The GUI is published [here](http://optimal-spespe.me/)
 
 The team is comprised of four students from two different universities and different departments. From the department of Biology of University Mohamed V, two students, a master’s student of Genomics and Bioinformatics and a graduate student of Biology and Health, and from the physics department of the same university, a graduate student of theorical physics, and finally a Bachelor student of IT Architecter Expert from the 1337 school department of University Mohamed 6 – Polytechnic. The group received additional advice from their common supervisor, Pr. Aïcha Madkour, a human reproduction specialist.
 
-- [![MohammadHichamPolo](https://github.com/MohammedHichamPolo.png)](https://github.com/MohammadHichamPolo)
-  
-- [![BenslimaneChama](https://github.com/BenslimaneChama.png)](https://github.com/BenslimaneChama))
+- [![MohammadHichamPolo](https://github.com/MohammadHichamPolo.png = 100px)](https://github.com/MohammadHichamPolo) [![BenslimaneChama](https://github.com/BenslimaneChama.png)](https://github.com/BenslimaneChama))
