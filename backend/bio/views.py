@@ -20,7 +20,9 @@ def upload_file(request):
         options = request.GET.getlist('options[]', [])
         models.check_data(file_name, options)
         path = models.var_name
-        return JsonResponse({'success': True, 'message': 'File uploaded successfully', 'path': path})
+        path_per = models.var_name_per
+        path_rep = models.var_report
+        return JsonResponse({'success': True, 'message': 'File uploaded successfully', 'path': path, 'path_per': path_per, 'path_rep': path_rep})
     else:
         return JsonResponse({'success': False, 'message': 'No file provided'}, status=400)
 

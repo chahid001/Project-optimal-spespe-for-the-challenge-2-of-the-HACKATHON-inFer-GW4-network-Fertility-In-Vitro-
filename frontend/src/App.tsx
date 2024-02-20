@@ -62,6 +62,8 @@ function App() {
   });
   const [canUpload, setCanUpload] = useState(false); // Track whether file upload is allowed
   const [filePath, setFilePath] = useState([]);
+  const [fileperPath, setFilePerPath] = useState([]);
+  const [filerepPath, setFileRepPath] = useState([]);
   const [sperms, setSperms] = useState(() => generateSperms()); // Generate sperms only once
   const [loading, setLoading] = useState(false); // Track loading state
   const [fileSelected, setFileSelected] = useState(false); // Track whether a file is selected
@@ -78,6 +80,20 @@ function App() {
 
   const handleCustomChange = () => {
     setOptions({ ...options, showCustom: !options.showCustom });
+  };
+
+  const handleDownload = (path) => {
+    const link = document.createElement('a');
+    link.href = path;
+    link.download = 'swimmer_graph'; 
+    link.click();
+  };
+
+  const handleDownloadReport = (path) => {
+    const link = document.createElement('a');
+    link.href = path;
+    link.download = 'Metadata'; // Specify filename if needed, otherwise it will use the filename inferred from the URL
+    link.click();
   };
 
   const handleCustomXChange = (event, newValue) => {
@@ -107,6 +123,8 @@ function App() {
         .then(response => {
           console.log('File uploaded successfully:', response.data);
           setFilePath([response.data.path]);
+          setFilePerPath([response.data.path_per]);
+          setFileRepPath([response.data.path_rep]);
         })
         .catch(error => {
           console.error('Error uploading file:', error);
@@ -203,6 +221,33 @@ function App() {
             {loading && <div className="loader"></div>} {/* Show loader when loading */}
           </Grid>
         </Grid>
+        <Grid container justifyContent="center" paddingTop={5} paddingBottom={5}>
+          <Grid item>
+          <ThemeProvider theme={themes}>
+              {filePath.map((path) => (
+              <Button 
+                variant="contained" 
+                startIcon={<CloudSync />} 
+                onClick={() => handleDownload(path)} 
+                style={{ marginRight: '10px' }}
+              >
+                Download Image 
+              </Button>
+              ))}
+              {filerepPath.map((path_rep) => (
+              <Button 
+                variant="contained" 
+                startIcon={<CloudSync />} 
+                onClick={() => handleDownloadReport(path_rep)}
+                style={{ marginLeft: '10px' }}
+              >
+                Download Report 
+              </Button>
+              ))}
+            </ThemeProvider>
+            {loading && <div className="loader"></div>} {/* Show loader when loading */}
+          </Grid>
+        </Grid>
         <div className="file-path">
           {filePath.map((path, index) => (
             <div key={index}>
@@ -210,6 +255,14 @@ function App() {
             </div>
           ))}
         </div>
+        <div className="file-path">
+          {fileperPath.map((path_per, index) => (
+            <div key={index}>
+              <img src={path_per} alt={`Uploaded Image ${path_per}`} />
+            </div>
+          ))}
+      </div>
+
 	<h4 className="ooo" style={{ fontFamily: 'Inter, system-ui', color: 'grey'}}>------------------------------------------------------------</h4>
 	<h5 className="ooo" style={{ fontFamily: 'Inter, system-ui', color: 'grey'}}>Project Optimal-Spespe, developed for Hackathon inFer GW4 Network's Fertility Challenge, employs two machine learning models to classify and visualize bovine spermatozoa flagella. The user-friendly Graphical User Interface facilitates easy data manipulation, accepting TRACKMATE-generated files in Excel or CSV formats. Users can choose default or customized results, specifying sample type and waveform range. Notably, the program operates from 8:00 am to 12:00 pm, offering immediate graphic illustrations of beat patterns with classification parameters (optimal, minimal, or Blebbed). Outputs can be downloaded as image files or comprehensive PDF reports, making Optimal-Spespe a versatile and accessible tool for sperm analysis.</h5>
       	<h5 className="ooo" style={{ fontFamily: 'Inter, system-ui', color: 'grey'}}>For more information check the documentation&nbsp;<a href="https://github.com/chahid001/Project-optimal-spespe-for-the-challenge-2-of-the-HACKATHON-inFer-GW4-network-Fertility-In-Vitro-" target="_blank">here</a></h5>
