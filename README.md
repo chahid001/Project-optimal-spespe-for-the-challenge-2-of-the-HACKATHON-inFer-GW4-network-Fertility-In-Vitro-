@@ -1,6 +1,6 @@
 
 # HACKATHON inFer GW4 network "Fertility: In Vitro, In Silico, In Clinico"
-
+# Title: "optimal spespe" tool development for beat pattern based classification and visualization of spermatozoon’s flagella in bovine spermatozoa
 # GOAL: Classify and visualize spermatozoon’s flagella by creating a tool that will analyses the beat pattern data and characterizes flagella waveforms in bovine spermatozoa.
 
 
